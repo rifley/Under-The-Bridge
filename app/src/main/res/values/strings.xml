@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Under The Bridge</string>
+    <string name="fragment_topic_title">Enter a Topic</string>
 </resources>
