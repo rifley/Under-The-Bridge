@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "135635115343",
+    "firebase_url": "https://underthebridge-3ae06.firebaseio.com",
+    "project_id": "underthebridge-3ae06",
+    "storage_bucket": "underthebridge-3ae06.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135635115343:android:d2d32c770c187a2c",
+        "android_client_info": {
+          "package_name": "com.example.guest.underthebridge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "135635115343-85730upr13iujfctk2b6cptj00k40u62.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1-1SmqwuDyblrK-CPC74hfsUs3GI1IrM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
