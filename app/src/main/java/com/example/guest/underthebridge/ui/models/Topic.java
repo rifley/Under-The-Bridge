@@ -15,7 +15,7 @@ public class Topic {
     public Topic (String title, String image) {
         this.title = title;
         this.image = image;
-        // TODO: 6/6/17 remember
+        this.posts = new ArrayList<>();
     }
 
     public String getTitle() {

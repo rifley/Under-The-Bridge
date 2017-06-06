@@ -11,6 +11,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.example.guest.underthebridge.R;
+import com.example.guest.underthebridge.ui.models.Topic;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -20,6 +23,7 @@ import butterknife.ButterKnife;
  */
 
 public class NewTopicFragment extends DialogFragment implements View.OnClickListener{
+    private DatabaseReference mTopicReference;
 
     EditText mTopicEditText;
     EditText mImageUrlEditText;
@@ -27,6 +31,7 @@ public class NewTopicFragment extends DialogFragment implements View.OnClickList
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View rootView = inflater.inflate(R.layout.fragment_topic_form, container, false);
         getDialog().setTitle("Topic Fragment");
         mTopicEditText = (EditText) rootView.findViewById(R.id.topicEditText);
@@ -34,6 +39,11 @@ public class NewTopicFragment extends DialogFragment implements View.OnClickList
         mTrollTickleButton = (ImageButton) rootView.findViewById(R.id.trollTickleButton);
 
         mTrollTickleButton.setOnClickListener(this);
+
+        mTopicReference = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child("topics");
 
         return rootView;
     }
@@ -43,8 +53,13 @@ public class NewTopicFragment extends DialogFragment implements View.OnClickList
         if(v == mTrollTickleButton) {
             String topic = mTopicEditText.getText().toString();
             String imageURL = mImageUrlEditText.getText().toString();
-            Log.v("in fragment", topic);
+
+            Topic newTopic = new Topic(topic, imageURL);
+            saveTopicToFirebase(newTopic);
             dismiss();
         }
+    }
+    public void saveTopicToFirebase(Topic newTopic) {
+        mTopicReference.push().setValue(newTopic);
     }
 }

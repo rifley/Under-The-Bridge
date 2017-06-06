@@ -15,7 +15,8 @@ public class Post {
     public Post (String title, String body) {
         this.title = title;
         this.body = body;
-        // TODO: 6/6/17 remember2
+        this.comments = new ArrayList<>();
+
     }
 
     public String getTitle() {
