@@ -1,4 +1,4 @@
-package com.example.guest.underthebridge.ui;
+package com.example.guest.underthebridge.ui.ui;
 
 import android.app.DialogFragment;
 import android.os.Bundle;
