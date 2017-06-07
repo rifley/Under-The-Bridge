@@ -42,10 +42,13 @@ public class CategoriesActivity extends AppCompatActivity implements View.OnClic
 
         mAddTopicButton.setOnClickListener(this);
 
-        mTopicReference = FirebaseDatabase.getInstance().getReference("topics");
+        mTopicReference = FirebaseDatabase.getInstance().getReference().child("topics");
+
+        Log.d("REFERENCE", mTopicReference.getKey());
+
         setUpFirebaseAdapter();
 
-        Log.d("REFERENCE", mTopicReference.child("-Km2UEs3MeMK0GIZnAG8").child("image").toString());
+
 
 
 
@@ -57,12 +60,14 @@ public class CategoriesActivity extends AppCompatActivity implements View.OnClic
 
             @Override
             public void populateViewHolder(FirebaseTopicViewHolder viewHolder, Topic model, int position) {
+
                 viewHolder.bindTopic(model);
             }
         };
         mCategoriesRecyclerView.setHasFixedSize(true);
         mCategoriesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mCategoriesRecyclerView.setAdapter(mFirebaseAdapter);
+        Log.d("reference", mTopicReference.getKey());
     }
 
     @Override

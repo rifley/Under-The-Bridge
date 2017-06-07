@@ -14,6 +14,8 @@ public class Topic {
     String title;
     String image;
     List<String> posts = new ArrayList<>();
+    String topicNodeId;
+
 
     public Topic() {}
 
@@ -37,5 +39,9 @@ public class Topic {
 
     public void setPosts(String postId) {
         posts.add(postId);
+    }
+
+    public void setId(String id) {
+        this.topicNodeId = id;
     }
 }
