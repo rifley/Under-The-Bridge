@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
     tools:context="com.example.guest.underthebridge.ui.ui.CategoriesActivity">
 
     <TextView
@@ -54,7 +53,7 @@
         android:layout_marginEnd="8dp" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/categoriesRecyclerView"
         android:layout_width="19dp"
         android:layout_height="404dp"
         android:layout_marginBottom="8dp"

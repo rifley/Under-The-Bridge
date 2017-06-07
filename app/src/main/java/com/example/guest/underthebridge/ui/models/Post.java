@@ -1,16 +1,20 @@
 package com.example.guest.underthebridge.ui.models;
 
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Guest on 6/6/17.
  */
-
+@Parcel
 public class Post {
-    private String title;
-    private String body;
-    private List<String> comments = new ArrayList<>();
+    String title;
+    String body;
+    List<String> comments = new ArrayList<>();
+
+    public Post() {}
 
     public Post (String title, String body) {
         this.title = title;
