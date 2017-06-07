@@ -1,5 +1,7 @@
 package com.example.guest.underthebridge.ui.models;
 
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,10 +9,13 @@ import java.util.List;
  * Created by Guest on 6/6/17.
  */
 
+@Parcel
 public class Topic {
-    private String title;
-    private String image;
-    private List<String> posts = new ArrayList<>();
+    String title;
+    String image;
+    List<String> posts = new ArrayList<>();
+
+    public Topic() {}
 
     public Topic (String title, String image) {
         this.title = title;
