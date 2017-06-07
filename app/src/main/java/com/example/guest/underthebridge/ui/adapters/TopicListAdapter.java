@@ -57,24 +57,26 @@ public class TopicListAdapter extends RecyclerView.Adapter<TopicListAdapter.Topi
         return mTopics.size();
     }
 
-    public class TopicViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class TopicViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private static final int MAX_WIDTH = 200;
         private static final int MAX_HEIGHT = 200;
 
-        @Bind(R.id.topicListImageView) ImageView mTopicListImageView;
-        @Bind(R.id.topicTitleListTextView) TextView mTopicListTextView;
-
+        View view;
         private Context mContext;
 
 
         public TopicViewHolder(View itemView) {
             super(itemView);
+            view = itemView;
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
             itemView.setOnClickListener(this);
         }
 
         public void bindTopic(Topic topic){
+            TextView mTopicListTextView = (TextView) view.findViewById(R.id.topicTitleListTextView);
+            ImageView mTopicListImageView = (ImageView) view.findViewById(R.id.topicListImageView);
+
             mTopicListTextView.setText(topic.getTitle());
             Picasso.with(mContext)
                     .load(topic.getImage())

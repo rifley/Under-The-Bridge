@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.guest.underthebridge.R;
+import com.example.guest.underthebridge.ui.adapters.FirebaseTopicViewHolder;
 import com.example.guest.underthebridge.ui.adapters.TopicListAdapter;
 import com.example.guest.underthebridge.ui.models.Topic;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -29,9 +30,9 @@ public class CategoriesActivity extends AppCompatActivity implements View.OnClic
     private DatabaseReference mTopicReference;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
 
-    private TopicListAdapter mAdapter;
-
-    public ArrayList<Topic> mTopics = new ArrayList<>();
+//    private TopicListAdapter mAdapter;
+//
+//    public ArrayList<Topic> mTopics = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,21 +40,23 @@ public class CategoriesActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_categories);
         ButterKnife.bind(this);
 
+        mAddTopicButton.setOnClickListener(this);
+
         mTopicReference = FirebaseDatabase.getInstance().getReference("topics");
         setUpFirebaseAdapter();
 
         Log.d("REFERENCE", mTopicReference.child("-Km2UEs3MeMK0GIZnAG8").child("image").toString());
 
-        mAddTopicButton.setOnClickListener(this);
+
 
     }
 
     private void setUpFirebaseAdapter() {
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<Topic, TopicListAdapter.TopicViewHolder>
-                (Topic.class, R.layout.topic_list_item, TopicListAdapter.TopicViewHolder.class, mTopicReference) {
+        mFirebaseAdapter = new FirebaseRecyclerAdapter<Topic, FirebaseTopicViewHolder>
+                (Topic.class, R.layout.topic_list_item, FirebaseTopicViewHolder.class, mTopicReference) {
 
             @Override
-            public void populateViewHolder(TopicListAdapter.TopicViewHolder viewHolder, Topic model, int position) {
+            public void populateViewHolder(FirebaseTopicViewHolder viewHolder, Topic model, int position) {
                 viewHolder.bindTopic(model);
             }
         };
